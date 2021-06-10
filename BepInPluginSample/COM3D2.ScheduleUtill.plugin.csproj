@@ -80,6 +80,8 @@
     <Compile Include="ScheduleUtillGUI.cs" />
     <Compile Include="ScheduleUtillPatch.cs" />
     <Compile Include="ScheduleUtillTool.cs" />
+    <Compile Include="YotogiOldPatch.cs" />
+    <Compile Include="YotogiPatch.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

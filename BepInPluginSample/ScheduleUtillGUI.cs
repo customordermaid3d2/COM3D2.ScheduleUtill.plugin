@@ -38,14 +38,14 @@ namespace BepInPluginSample
 
             GUI.enabled = true;
             GUILayout.Label("밤시중");
-            if (GUILayout.Button("스테이지 자동 선택 " + ScheduleUtillPatch.IsSelect)) ScheduleUtillPatch.IsSelect = !ScheduleUtillPatch.IsSelect;
-            if (GUILayout.Button("스테이지 자동 선택 ")) ScheduleUtillPatch.Select();
-            if (GUILayout.Button("스킬 자동 선택 " + ScheduleUtillPatch.IsAddSkill)) ScheduleUtillPatch.IsAddSkill = !ScheduleUtillPatch.IsAddSkill;
-            if (GUILayout.Button("스킬 자동 선택 ")) ScheduleUtillPatch.AddSkill(false);
-
+            if (GUILayout.Button("스테이지 자동 선택 " + YotogiPatch.IsSelect)) YotogiPatch.IsSelect = !YotogiPatch.IsSelect;
+            if (GUILayout.Button("스테이지 자동 선택 ")) YotogiPatch.Select();
+            GUI.enabled = !DailyMgr.IsLegacy;
+            if (GUILayout.Button("스킬 자동 선택 " + YotogiPatch.IsAddSkill)) YotogiPatch.IsAddSkill = !YotogiPatch.IsAddSkill;
+            if (GUILayout.Button("스킬 자동 선택 ")) YotogiPatch.AddSkill(false);
             GUI.enabled = DailyMgr.IsLegacy;
-            if (GUILayout.Button("스킬 자동 선택 old " + ScheduleUtillPatch.IsAddSkill)) ScheduleUtillPatch.IsAddSkill = !ScheduleUtillPatch.IsAddSkill;
-            if (GUILayout.Button("스킬 자동 선택 old ")) ScheduleUtillPatch.AddSkill(false);
+            if (GUILayout.Button("스킬 자동 선택 old " + YotogiOldPatch.IsAddSkill)) YotogiOldPatch.IsAddSkill = !YotogiOldPatch.IsAddSkill;
+            if (GUILayout.Button("스킬 자동 선택 old ")) YotogiOldPatch.AddSkill(false);
 
 
             GUILayout.EndScrollView();
