@@ -51,7 +51,9 @@ namespace BepInPluginSample
             IsGUIOn = Config.Bind("GUI", "isGUIOn", false);
 
             ScheduleUtillPatch.init(Config);
-
+            YotogiPatch.init(Config);
+            YotogiOldPatch.init(Config);
+            
             // 위치 저장용 테스트 json
             myWindowRect = new MyWindowRect(Config);
 
@@ -70,7 +72,8 @@ namespace BepInPluginSample
 
             // 하모니 패치
             harmony = Harmony.CreateAndPatchAll(typeof(ScheduleUtillPatch));
-
+            harmony.PatchAll(typeof(YotogiPatch));
+            harmony.PatchAll(typeof(YotogiOldPatch));
             // json 읽기
             myWindowRect.load();
         }

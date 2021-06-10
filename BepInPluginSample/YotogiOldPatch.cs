@@ -40,6 +40,25 @@ namespace BepInPluginSample
             }
         }
 
+        [HarmonyPatch(typeof(YotogiOldStageUnit), "SetStageData", new Type[] { typeof(YotogiOld.StageData), typeof(bool) })]//, new Type[] { typeof(int), typeof(int), typeof(bool) }
+        [HarmonyPostfix]
+        public static void SetStageData(YotogiOld.StageData stage_data, bool enabled, YotogiOldStageUnit __instance, UILabel ___name_label_)
+        {
+            if (enabled)
+            {
+                if (IsSelect)
+                {
+                    yotogiStageUnits.Add(__instance);
+                }
+            }
+            else
+            {
+                ___name_label_.text = stage_data.draw_name;
+                //this.name_label_.text = "??????";
+            }
+
+        }
+
         [HarmonyPatch(typeof(YotogiOldStageSelectManager), "OnCall")]//, new Type[] { typeof(int), typeof(int), typeof(bool) }
         [HarmonyPostfix]
         public static void OnCallPost(YotogiOldStageSelectManager __instance)

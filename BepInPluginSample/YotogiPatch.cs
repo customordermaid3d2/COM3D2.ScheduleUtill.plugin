@@ -38,6 +38,25 @@ namespace BepInPluginSample
             }
         }
 
+        [HarmonyPatch(typeof(YotogiStageUnit), "SetStageData")]//, new Type[] { typeof(int), typeof(int), typeof(bool) }
+        [HarmonyPostfix]
+        public static void SetStageData(YotogiStage.Data stage_data, bool enabled, bool isDaytime, YotogiStageUnit __instance, UILabel ___name_label_)
+        {
+            if (enabled)
+            {
+                if (IsSelect)
+                {
+                    yotogiStageUnits.Add(__instance);
+                }
+            }
+            else
+            {
+                ___name_label_.text = stage_data.drawName;
+                //this.name_label_.text = "??????";
+            }
+
+        }
+
         [HarmonyPatch(typeof(YotogiStageSelectManager), "OnCall")]//, new Type[] { typeof(int), typeof(int), typeof(bool) }
         [HarmonyPostfix]
         public static void OnCallPost(YotogiStageSelectManager __instance)
