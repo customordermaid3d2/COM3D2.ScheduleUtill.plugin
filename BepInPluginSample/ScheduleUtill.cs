@@ -22,12 +22,12 @@ namespace BepInPluginSample
     {
 
         // 단축키 설정파일로 연동
-        private ConfigEntry<BepInEx.Configuration.KeyboardShortcut> ShowCounter;
+        public static ConfigEntry<BepInEx.Configuration.KeyboardShortcut> ShowCounter;
 
         // GUI ON OFF 설정파일로 저장
-        private ConfigEntry<bool> IsGUIOn;
+        private static ConfigEntry<bool> IsGUIOn;
 
-        private bool isGUIOn
+        public static bool isGUIOn
         {
             get => IsGUIOn.Value;
             set => IsGUIOn.Value = value;
@@ -35,7 +35,7 @@ namespace BepInPluginSample
 
         Harmony harmony;
 
-        MyWindowRect myWindowRect;
+        public static MyWindowRect myWindowRect;
 
         /// <summary>
         ///  게임 실행시 한번만 실행됨
@@ -126,7 +126,7 @@ namespace BepInPluginSample
                 return;
             }
 
-            myWindowRect.WindowRect = GUILayout.Window(windowId, myWindowRect.WindowRect, ScheduleUtillGUI.WindowFunction, MyAttribute.PLAGIN_NAME);
+            myWindowRect.WindowRect = GUILayout.Window(windowId, myWindowRect.WindowRect, ScheduleUtillGUI.WindowFunction, "", GUI.skin.box);
         }
 
     
