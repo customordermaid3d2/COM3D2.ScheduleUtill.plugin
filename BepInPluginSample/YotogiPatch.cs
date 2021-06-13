@@ -102,9 +102,9 @@ namespace BepInPluginSample
         public static void Awake(YotogiSkillSelectManager __instance)
         {
             //if (configEntryUtill["SetResolution"])
-            {
-                MyLog.LogMessage("YotogiSkillSelectManager.Awake");
-            }
+            //{
+            //    MyLog.LogMessage("YotogiSkillSelectManager.Awake");
+            //}
             yotogiSkillSelectManager = __instance;
         }
 
@@ -132,13 +132,14 @@ namespace BepInPluginSample
         {
             if (yotogiSkillContainerViewer == null)
             {
-                MyLog.LogMessage("YotogiSkillContainerViewer.AddSkill instance==null"
-                );
+                //MyLog.LogMessage("YotogiSkillContainerViewer.AddSkill instance==null"
+                //);
                 return;
             }
 
             if (listClear)
             {
+                skillList.Clear();
                 YotogiStage.Data setting_stage_data_;
 
                 if (YotogiStageSelectManager.SelectedStage != null)
@@ -160,13 +161,13 @@ namespace BepInPluginSample
                         YotogiSkillListManager.Data value = keyValuePair.Value;
                         if (value.skillData.IsExecStage(setting_stage_data_))
                         {
-                            MyLog.LogMessage("AddSkill"
-                            , type
-                            , value.skillData.category
-                            , value.skillData.id
-                            , value.skillData.name
-                            , value.maidStatusSkillData != null
-                            );
+                            //MyLog.LogMessage("AddSkill"
+                            //, type
+                            //, value.skillData.category
+                            //, value.skillData.id
+                            //, value.skillData.name
+                            //, value.maidStatusSkillData != null
+                            //);
                             if (value.maidStatusSkillData != null)
                                 skillList.Add(value.skillData);
                             //skillOldList.Add(value.skillDataOld);
@@ -185,14 +186,14 @@ namespace BepInPluginSample
                     c = UnityEngine.Random.Range(0, skillList.Count);
                     try
                     {
-                        MyLog.LogMessage("AddSkill"
-                        , skillList[c].category
-                        , skillList[c].id
-                        , skillList[c].name
-                        , skillList[c].specialConditionType
-                        , skillList[c].start_call_file
-                        , skillList[c].start_call_file2
-                        );
+                        //MyLog.LogMessage("AddSkill"
+                        //, skillList[c].category
+                        //, skillList[c].id
+                        //, skillList[c].name
+                        //, skillList[c].specialConditionType
+                        //, skillList[c].start_call_file
+                        //, skillList[c].start_call_file2
+                        //);
                         yotogiSkillContainerViewer.AddSkill(skillList[c], false);
                     }
                     catch (Exception e)

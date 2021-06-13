@@ -13,14 +13,15 @@ namespace BepInPluginSample
         public static void WindowFunction(int id)
         {
             GUI.enabled = true;
-            scrollPosition = GUILayout.BeginScrollView(scrollPosition);
 
             GUILayout.BeginHorizontal();
-            GUILayout.Label(MyAttribute.PLAGIN_NAME + " " + ScheduleUtill.ShowCounter.Value.ToString(), GUILayout.Height(20));
+            GUILayout.Label(MyAttribute.PLAGIN_NAME , GUILayout.Height(20));//+ " " + ScheduleUtill.ShowCounter.Value.ToString()
             GUILayout.FlexibleSpace();
             if (GUILayout.Button("-", GUILayout.Width(20), GUILayout.Height(20))) { ScheduleUtill.myWindowRect.IsOpen = !ScheduleUtill.myWindowRect.IsOpen; }
             if (GUILayout.Button("x", GUILayout.Width(20), GUILayout.Height(20))) { ScheduleUtill.isGUIOn = false; }
             GUILayout.EndHorizontal();
+
+            scrollPosition = GUILayout.BeginScrollView(scrollPosition);
 
             if (!ScheduleUtill.myWindowRect.IsOpen)
             {
