@@ -81,6 +81,8 @@ namespace BepInPluginSample
                 return;
             }
 
+            WorkIdResetAll(scheduleTime);
+
             // 사용 가능한 메이드 슬롯 목록
             List<int> slots = new();
             List<int> slotsn = new();
@@ -173,6 +175,66 @@ namespace BepInPluginSample
             }
         }
 
+        internal static void WorkIdReset(Maid maid, ScheduleMgr.ScheduleTime time)
+        {
+            if (time == ScheduleMgr.ScheduleTime.DayTime)
+            {
+                    int num = ScheduleAPI.NoonWorkRandom(maid);
+                    maid.status.noonWorkId = num;
+
+                    ScheduleAPI.AddTrainingFacility(maid, num, ScheduleMgr.ScheduleTime.DayTime);
+                    if (maid.status.heroineType == HeroineType.Sub)
+                    {
+                        ScheduleAPI.SubMaidDefaultFacility(maid, num, ScheduleMgr.ScheduleTime.DayTime);
+                    }
+                }
+            else if (time == ScheduleMgr.ScheduleTime.Night)
+            {                
+                    int num = ScheduleAPI.NightWorkRandom(maid);
+                    maid.status.nightWorkId = num;
+
+                    ScheduleAPI.AddTrainingFacility(maid, num, ScheduleMgr.ScheduleTime.Night);
+                    if (maid.status.heroineType == HeroineType.Sub)
+                    {
+                        ScheduleAPI.SubMaidDefaultFacility(maid, num, ScheduleMgr.ScheduleTime.Night);
+                    }
+                }
+        }
+
+        internal static void WorkIdResetAll(ScheduleMgr.ScheduleTime time)
+        {
+            List<Maid> maids = GameMain.Instance.CharacterMgr.GetStockMaidList();
+
+            if (time == ScheduleMgr.ScheduleTime.DayTime)
+            {
+                foreach (var maid in maids)
+                {
+                    int num = ScheduleAPI.NoonWorkRandom(maid);
+                    maid.status.noonWorkId = num;
+
+                    ScheduleAPI.AddTrainingFacility(maid, num, ScheduleMgr.ScheduleTime.DayTime);
+                    if (maid.status.heroineType == HeroineType.Sub)
+                    {
+                        ScheduleAPI.SubMaidDefaultFacility(maid, num, ScheduleMgr.ScheduleTime.DayTime);
+                    }
+                }
+            }
+            else if (time == ScheduleMgr.ScheduleTime.Night)
+            {
+                foreach (var maid in maids)
+                {
+                    int num = ScheduleAPI.NightWorkRandom(maid);
+                    maid.status.nightWorkId = num;
+
+                    ScheduleAPI.AddTrainingFacility(maid, num, ScheduleMgr.ScheduleTime.Night);
+                    if (maid.status.heroineType == HeroineType.Sub)
+                    {
+                        ScheduleAPI.SubMaidDefaultFacility(maid, num, ScheduleMgr.ScheduleTime.Night);
+                    }
+                }
+            }
+        }
+
         public static void SetSchedule(ScheduleMgr.ScheduleTime scheduleTime, ScheduleType scheduleType, List<int> slots, List<int> slotsn, int cnt = 40)
         {
             if (scheduleType == ScheduleType.Work || cnt == 0)
@@ -238,6 +300,7 @@ namespace BepInPluginSample
         }
 
 
+
         public static void SetSlots(ScheduleData[] scheduleDatas, List<int> slots)
         {
             for (int i = 0; i < scheduleDatas.Length; i++)
@@ -251,6 +314,8 @@ namespace BepInPluginSample
                 slots.Add(i);
             }
         }
+        /*
+        */
 
         public static void SetWorkId(ScheduleMgr.ScheduleTime workTime, int taskId, int slotId)
         {

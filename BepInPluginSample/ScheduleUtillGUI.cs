@@ -31,6 +31,7 @@ namespace BepInPluginSample
             {
                 //GUILayout.Label("now scene.name : " + ScheduleUtill.scene_name);
 
+                GUILayout.Label("=== 슬롯 메이드만 ===");
                 GUILayout.Label("Schedule 진입 필요.");
                 GUI.enabled = ScheduleUtillPatch.m_scheduleApi != null;
                 if (GUILayout.Button("슬롯에 메이드 자동 배치")) ScheduleUtillTool.SetSlotAllMaid();
@@ -43,6 +44,7 @@ namespace BepInPluginSample
                 if (GUILayout.Button("메이드 훈련 자동 배치 - 야간")) ScheduleUtillTool.SetScheduleAllMaid(ScheduleMgr.ScheduleTime.Night, false, true, false);
                 if (GUILayout.Button("메이드 시설에 자동 배치 - 주간")) ScheduleUtillTool.SetScheduleAllMaid(ScheduleMgr.ScheduleTime.DayTime, false, false, true);
                 if (GUILayout.Button("메이드 시설에 자동 배치 - 야간")) ScheduleUtillTool.SetScheduleAllMaid(ScheduleMgr.ScheduleTime.Night, false, false, true);
+
 
                 GUI.enabled = true;
                 GUILayout.Label("매일 자동 적용.");
@@ -60,6 +62,13 @@ namespace BepInPluginSample
                 GUI.enabled = DailyMgr.IsLegacy;
                 if (GUILayout.Button("스킬 자동 선택 old " + YotogiOldPatch.IsAddSkill)) YotogiOldPatch.IsAddSkill = !YotogiOldPatch.IsAddSkill;
                 if (GUILayout.Button("스킬 자동 선택 old ")) YotogiOldPatch.AddSkill(false);
+
+                GUI.enabled = true;
+                GUILayout.Label("=== 모든 메이드 ===");
+
+                if (GUILayout.Button("메이드 스케줄 리셋 - 주간")) ScheduleUtillTool.WorkIdResetAll(ScheduleMgr.ScheduleTime.DayTime);
+                if (GUILayout.Button("메이드 스케줄 리셋 - 야간")) ScheduleUtillTool.WorkIdResetAll(ScheduleMgr.ScheduleTime.Night );
+
 
                 /*
                 if (GUI.changed)

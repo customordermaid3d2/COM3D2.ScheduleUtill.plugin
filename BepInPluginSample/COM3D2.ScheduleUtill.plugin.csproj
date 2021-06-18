@@ -7,7 +7,7 @@
     <ProjectGuid>{22EEBF57-57FB-4FF6-A298-653F0DB3E029}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BepInPluginSample</RootNamespace>
+    <RootNamespace>COM3D2.ScheduleUtill.plugin</RootNamespace>
     <AssemblyName>COM3D2.ScheduleUtill.plugin</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
