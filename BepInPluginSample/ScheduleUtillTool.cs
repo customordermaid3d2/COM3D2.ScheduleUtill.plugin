@@ -91,7 +91,7 @@ namespace BepInPluginSample
 
             SetSlots(scheduleDatas, slots);
 
-            int c1 = 40, c2 = 40, c3, c4;
+            int c1 = 40, c2 = 40, c3=0, c4=0;
             if (isYotogi && isTraining && isSetFacility)
             {
                 c3 = UnityEngine.Random.Range(0, 40);
@@ -107,7 +107,12 @@ namespace BepInPluginSample
                     c2 = c4;
                 }
             }
-
+            MyLog.LogMessage("SetYotogiAllMaid"
+                , c1
+                , c2
+                , c3
+                , c4
+            );
             if (isYotogi)
                 SetSchedule(scheduleTime, ScheduleType.Yotogi, slots, slotsn, c1);
 
