@@ -1,5 +1,5 @@
 ﻿using BepInEx.Configuration;
-using COM3D2.Lilly.Plugin;
+
 using HarmonyLib;
 using System;
 using System.Collections.Generic;
@@ -8,7 +8,7 @@ using System.Text;
 using UnityEngine;
 using Yotogis;
 
-namespace BepInPluginSample
+namespace COM3D2.ScheduleUtill.plugin
 {
     class YotogiPatch
     {
@@ -198,7 +198,7 @@ namespace BepInPluginSample
                     }
                     catch (Exception e)
                     {
-                        MyLog.LogError(e.ToString());
+                        ScheduleUtill.log.LogError(e.ToString());
                     }
                 }
             }

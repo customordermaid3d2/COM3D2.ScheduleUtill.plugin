@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 
-namespace BepInPluginSample
+namespace COM3D2.ScheduleUtill.plugin
 {
     class ScheduleUtillGUI
     {

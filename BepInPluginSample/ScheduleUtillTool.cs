@@ -1,4 +1,4 @@
-﻿using COM3D2.Lilly.Plugin;
+﻿
 using MaidStatus;
 using PlayerStatus;
 using Schedule;
@@ -7,19 +7,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BepInPluginSample
+namespace COM3D2.ScheduleUtill.plugin
 {
     public class ScheduleUtillTool
     {
-
-
 
 
         public static void SetSlotAllMaid()
         {
             if (ScheduleUtillPatch.m_scheduleApi == null)
             {
-                MyLog.LogMessage("SetSlotAllMaid"
+                ScheduleUtill.log.LogMessage("SetSlotAllMaid"
                 , "스케줄 관리 접속 한번 필요"
                 );
                 return;
@@ -35,7 +33,7 @@ namespace BepInPluginSample
             {
                 maids.AddRange(GameMain.Instance.CharacterMgr.GetStockMaidList());
             }
-            MyLog.LogMessage("SetSlotAllMaid"
+            ScheduleUtill.log.LogMessage("SetSlotAllMaid"
             , maids.Count
             , ScheduleUtillPatch.m_scheduleApi.slot.Length
             );
@@ -58,7 +56,7 @@ namespace BepInPluginSample
         {
             if (ScheduleUtillPatch.m_scheduleApi == null)
             {
-                MyLog.LogMessage("SetSlotAllDel"
+                ScheduleUtill.log.LogMessage("SetSlotAllDel"
                 , "스케줄 관리 접속 한번 필요"
                 );
                 return;
@@ -75,7 +73,7 @@ namespace BepInPluginSample
         {
             if (ScheduleUtillPatch.m_scheduleApi == null)
             {
-                MyLog.LogMessage("SetYotogiAllMaid"
+                ScheduleUtill.log.LogMessage("SetYotogiAllMaid"
                 , "스케줄 관리 접속 한번 필요"
                 );
                 return;
@@ -107,7 +105,7 @@ namespace BepInPluginSample
                     c2 = c4;
                 }
             }
-            MyLog.LogMessage("SetYotogiAllMaid"
+            ScheduleUtill.log.LogMessage("SetYotogiAllMaid"
                 , c1
                 , c2
                 , c3
@@ -385,7 +383,7 @@ namespace BepInPluginSample
             }
             else
             {
-                MyLog.LogMessage("ScheduleAPI.SetRandomCommu count 0"
+                ScheduleUtill.log.LogMessage("ScheduleAPI.SetRandomCommu count 0"
                 , isDaytime
             );
             }

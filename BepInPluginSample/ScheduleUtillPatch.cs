@@ -1,5 +1,5 @@
 ﻿using BepInEx.Configuration;
-using COM3D2.Lilly.Plugin;
+using COM3D2.LillyUtill;
 using HarmonyLib;
 using Schedule;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using UnityEngine;
 using Yotogis;
 
-namespace BepInPluginSample
+namespace COM3D2.ScheduleUtill.plugin
 {
     public class ScheduleUtillPatch
     {
@@ -19,8 +19,6 @@ namespace BepInPluginSample
         private static ConfigEntry<bool> isSetSlotAllMaid;
         private static ConfigEntry<bool> isSetScheduleAllMaid;
         private static ConfigEntry<bool> isSetRandomCommu;
-
-
 
         public static bool IsSetSlotAllMaid { get => isSetSlotAllMaid.Value; set => isSetSlotAllMaid.Value = value; }
         public static bool IsSetScheduleAllMaid { get => isSetScheduleAllMaid.Value; set => isSetScheduleAllMaid.Value = value; }
@@ -41,7 +39,7 @@ namespace BepInPluginSample
             , ScheduleScene ___m_scheduleApi
         ) // string __m_BGMName 못가져옴
         {
-            MyLog.LogMessage("LoadData"
+            ScheduleUtill.log.LogMessage("LoadData"
                 );
             m_scheduleApi = ___m_scheduleApi;
         }

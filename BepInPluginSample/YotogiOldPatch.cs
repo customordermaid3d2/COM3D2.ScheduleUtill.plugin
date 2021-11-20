@@ -1,5 +1,5 @@
 ﻿using BepInEx.Configuration;
-using COM3D2.Lilly.Plugin;
+
 using HarmonyLib;
 using MaidStatus;
 using System;
@@ -10,7 +10,7 @@ using UnityEngine;
 using wf;
 using Yotogis;
 
-namespace BepInPluginSample
+namespace COM3D2.ScheduleUtill.plugin
 {
     class YotogiOldPatch
     {
@@ -104,7 +104,7 @@ namespace BepInPluginSample
         {
             //if (configEntryUtill["SetResolution"])
             {
-                MyLog.LogMessage("YotogiOldSkillContainerViewer.Constructor"
+                ScheduleUtill.log.LogMessage("YotogiOldSkillContainerViewer.Constructor"
                     , root_obj.name
                     , parent.name
                     );
@@ -126,7 +126,7 @@ namespace BepInPluginSample
         {
             if (instance == null)
             {
-                MyLog.LogMessage("YotogiSkillContainerViewer.AddSkill instance==null"
+                ScheduleUtill.log.LogMessage("YotogiSkillContainerViewer.AddSkill instance==null"
                 );
                 return;
             }
@@ -142,7 +142,7 @@ namespace BepInPluginSample
                     }
                     catch
                     {
-                        MyLog.LogError("Yotogi.Stage enum convert error.\n" + YotogiOldStageSelectManager.StageName, false);
+                        ScheduleUtill.log.LogError("Yotogi.Stage enum convert error.\n" + YotogiOldStageSelectManager.StageName, false);
                         return;
                     }
                 }
@@ -155,7 +155,7 @@ namespace BepInPluginSample
                     Skill.Old.Data oldData = yotogiSkillData.oldData;
                     if (oldData.IsExecStage(setting_stage_data_.stage) && oldData.IsExecMaid(maid.status))
                     {
-                        MyLog.LogMessage("AddSkillOld"
+                        ScheduleUtill.log.LogMessage("AddSkillOld"
                             , oldData.category
                             , oldData.id
                             , oldData.name
@@ -176,7 +176,7 @@ namespace BepInPluginSample
                     }
                     catch (Exception e)
                     {
-                        MyLog.LogError(e.ToString());
+                        ScheduleUtill.log.LogError(e.ToString());
                     }
                 }
             }
