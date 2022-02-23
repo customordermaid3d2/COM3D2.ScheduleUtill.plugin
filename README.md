@@ -1,5 +1,4 @@
 # COM3D2.ScheduleUtill.plugin
-BepIn
 
 there may be bugs
 
@@ -8,38 +7,37 @@ there may be bugs
 https://youtu.be/SJHz69YTh-o?t=3201
 
 
-# ì„¤ëª…
-
-## schedule ì§„ì… í•„ìš”
-
-ìŠ¤ì¼€ì¤„ ë©”ë‰´ í•œë²ˆ ì ‘ì†í•´ì•¼í•¨.  
-ì´í›„ë¡œëŠ” ì¥ë©´ ì–´ë””ì„œë“  ì‚¬ìš© ê°€ëŠ¥í•˜ê¸´ í•˜ì§€ë§Œ ì£¼ê°„ì—ë§Œ ì‚¬ìš©í• ê²ƒ.  
-
-
-## ë§¤ì¼ ìë™ ì ìš©
-
-ì£¼ê°„ì— ì§„ì…í• ë•Œë§ˆë‹¤ í•´ë‹¹ ë²„íŠ¼ì˜ ê¸°ëŠ¥ ì ìš©.  
-í•„ìš” ì—†ì„ì‹œ ë²„íŠ¼ ëˆŒëŸ¬ì„œ falseë¡œ ë°”ê¿€ê²ƒ.  
-
-
-## ë°¤ì‹œì¤‘
-
-ë°©ì‹œì¤‘ ìŠ¤í…Œì´ì§€ ë° ë°¤ì‹œì¤‘ ìŠ¤í‚¬ ìë™ì„ íƒí•˜ê²Œ í•´ì¤Œ.  
-
-
-
-
-# í•„ìš”í•œê±°
+# ÇÊ¿äÇÑ°Å
 
 - BepInEx https://github.com/BepInEx/BepInEx  
 - SybarisLoader https://github.com/BepInEx/BepInEx.SybarisLoader.Patcher  
 - UnityInjectorLoader https://github.com/BepInEx/BepInEx.UnityInjectorLoader  
 
 - COM3D2.API.dll  https://github.com/DeathWeasel1337/COM3D2_Plugins/releases/download/v3/COM3D2.API.v1.0.zip  
-- System.Threading.dll  ì–´ì§€ê°„í•˜ë©´ íƒìƒ‰ê¸°ì—ì„œ ë°œê²¬ ê°€ëŠ¥. https://github.com/customordermaid3d2/COM3D2.Lilly.BepInExPlugin/releases/download/210409/System.Threading.dll  
+- System.Threading.dll  ¾îÁö°£ÇÏ¸é Å½»ö±â¿¡¼­ ¹ß°ß °¡´É. https://github.com/customordermaid3d2/COM3D2.Lilly.BepInExPlugin/releases/download/210409/System.Threading.dll  
 - LillyUtill https://github.com/customordermaid3d2/COM3D2.LillyUtill  
 
 
-# ì„¤ì¹˜ ìœ„ì¹˜
+# ¼³Ä¡ À§Ä¡
 
 - COM3D2\BepInEx\plugins
+
+
+# ¼³¸í
+
+## schedule ÁøÀÔ ÇÊ¿ä
+
+½ºÄÉÁÙ ¸Ş´º ÇÑ¹ø Á¢¼ÓÇØ¾ßÇÔ.  
+ÀÌÈÄ·Î´Â Àå¸é ¾îµğ¼­µç »ç¿ë °¡´ÉÇÏ±ä ÇÏÁö¸¸ ÁÖ°£¿¡¸¸ »ç¿ëÇÒ°Í.  
+
+
+## ¸ÅÀÏ ÀÚµ¿ Àû¿ë
+
+ÁÖ°£¿¡ ÁøÀÔÇÒ¶§¸¶´Ù ÇØ´ç ¹öÆ°ÀÇ ±â´É Àû¿ë.  
+ÇÊ¿ä ¾øÀ»½Ã ¹öÆ° ´­·¯¼­ false·Î ¹Ù²Ü°Í.  
+
+
+## ¹ã½ÃÁß
+
+¹æ½ÃÁß ½ºÅ×ÀÌÁö ¹× ¹ã½ÃÁß ½ºÅ³ ÀÚµ¿¼±ÅÃÇÏ°Ô ÇØÁÜ.  
+
