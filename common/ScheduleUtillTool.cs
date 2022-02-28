@@ -17,9 +17,7 @@ namespace COM3D2.ScheduleUtill.plugin
         {
             if (ScheduleUtillPatch.m_scheduleApi == null)
             {
-                ScheduleUtill.log.LogMessage("SetSlotAllMaid"
-                , "스케줄 관리 접속 한번 필요"
-                );
+                ScheduleUtill.log.LogMessage("SetSlotAllMaid 스케줄 관리 접속 한번 필요");
                 return;
             }
 
@@ -33,10 +31,7 @@ namespace COM3D2.ScheduleUtill.plugin
             {
                 maids.AddRange(GameMain.Instance.CharacterMgr.GetStockMaidList());
             }
-            ScheduleUtill.log.LogMessage("SetSlotAllMaid"
-            , maids.Count
-            , ScheduleUtillPatch.m_scheduleApi.slot.Length
-            );
+
             for (int i = 0; i < ScheduleUtillPatch.m_scheduleApi.slot.Length; i++)
             {
                 if (maids.Count == 0)
@@ -56,9 +51,7 @@ namespace COM3D2.ScheduleUtill.plugin
         {
             if (ScheduleUtillPatch.m_scheduleApi == null)
             {
-                ScheduleUtill.log.LogMessage("SetSlotAllDel"
-                , "스케줄 관리 접속 한번 필요"
-                );
+                ScheduleUtill.log.LogMessage("SetSlotAllMaid 스케줄 관리 접속 한번 필요");
                 return;
             }
 
@@ -73,9 +66,7 @@ namespace COM3D2.ScheduleUtill.plugin
         {
             if (ScheduleUtillPatch.m_scheduleApi == null)
             {
-                ScheduleUtill.log.LogMessage("SetYotogiAllMaid"
-                , "스케줄 관리 접속 한번 필요"
-                );
+                ScheduleUtill.log.LogMessage("SetSlotAllMaid 스케줄 관리 접속 한번 필요");
                 return;
             }
 
@@ -105,12 +96,7 @@ namespace COM3D2.ScheduleUtill.plugin
                     c2 = c4;
                 }
             }
-            ScheduleUtill.log.LogMessage("SetYotogiAllMaid"
-                , c1
-                , c2
-                , c3
-                , c4
-            );
+
             if (isYotogi)
                 SetSchedule(scheduleTime, ScheduleType.Yotogi, slots, slotsn, c1);
 
@@ -383,8 +369,7 @@ namespace COM3D2.ScheduleUtill.plugin
             }
             else
             {
-                ScheduleUtill.log.LogMessage("ScheduleAPI.SetRandomCommu count 0"
-                , isDaytime
+                ScheduleUtill.log.LogMessage($"ScheduleAPI.SetRandomCommu count 0 {isDaytime}"
             );
             }
         }

@@ -102,14 +102,6 @@ namespace COM3D2.ScheduleUtill.plugin
         [HarmonyPostfix]
         public static void Constructor(GameObject root_obj, MonoBehaviour parent, YotogiOldSkillContainerViewer __instance)
         {
-            //if (configEntryUtill["SetResolution"])
-            {
-                ScheduleUtill.log.LogMessage("YotogiOldSkillContainerViewer.Constructor"
-                    , root_obj.name
-                    , parent.name
-                    );
-            }
-
             instance = __instance;
         }
 
@@ -142,7 +134,7 @@ namespace COM3D2.ScheduleUtill.plugin
                     }
                     catch
                     {
-                        ScheduleUtill.log.LogError("Yotogi.Stage enum convert error.\n" + YotogiOldStageSelectManager.StageName, false);
+                        ScheduleUtill.log.LogError($"Yotogi.Stage enum convert error. {YotogiOldStageSelectManager.StageName}"  );
                         return;
                     }
                 }
@@ -155,11 +147,6 @@ namespace COM3D2.ScheduleUtill.plugin
                     Skill.Old.Data oldData = yotogiSkillData.oldData;
                     if (oldData.IsExecStage(setting_stage_data_.stage) && oldData.IsExecMaid(maid.status))
                     {
-                        ScheduleUtill.log.LogMessage("AddSkillOld"
-                            , oldData.category
-                            , oldData.id
-                            , oldData.name
-                            );
 
                         skillList.Add(oldData);
                     }

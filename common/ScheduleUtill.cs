@@ -1,8 +1,9 @@
 ﻿using BepInEx;
 using BepInEx.Configuration;
-using COM3D2.LillyUtill;
+using BepInEx.Logging;
 using COM3D2API;
 using HarmonyLib;
+using LillyUtill.MyWindowRect;
 using Newtonsoft.Json;
 using System;
 using System.Collections;
@@ -42,15 +43,15 @@ namespace COM3D2.ScheduleUtill.plugin
 
         Harmony harmony;
 
-        public static MyWindowRect myWindowRect;
-        public static MyLog log;
+        public static WindowRectUtill myWindowRect;
+        public static ManualLogSource log;
 
         /// <summary>
         ///  게임 실행시 한번만 실행됨
         /// </summary>
         public void Awake()
         {
-            log = new MyLog(Logger, Config);
+            log = Logger;
             log.LogInfo("Awake");
                        
             // 단축키 기본값 설정
@@ -64,11 +65,11 @@ namespace COM3D2.ScheduleUtill.plugin
             YotogiOldPatch.init(Config);
             
             // 위치 저장용 테스트 json
-            myWindowRect = new MyWindowRect(Config, MyAttribute.PLAGIN_FULL_NAME, MyAttribute.PLAGIN_NAME, "SchUt");
+            myWindowRect = new WindowRectUtill(Config, MyAttribute.PLAGIN_FULL_NAME, MyAttribute.PLAGIN_NAME, "SU");
 
             // 기어 메뉴 추가. 이 플러그인 기능 자체를 멈추려면 enabled 를 꺽어야함. 그러면 OnEnable(), OnDisable() 이 작동함
             //SystemShortcutAPI.AddButton(MyAttribute.PLAGIN_FULL_NAME, new Action(delegate () { enabled = !enabled; }), MyAttribute.PLAGIN_NAME, MyUtill.ExtractResource(Properties.Resources.icon));
-            SystemShortcutAPI.AddButton(MyAttribute.PLAGIN_FULL_NAME, new Action(delegate () { isGUIOn = !isGUIOn; }), MyAttribute.PLAGIN_NAME + " " + ScheduleUtill.ShowCounter.Value.ToString(), MyUtill.ExtractResource(COM3D2.ScheduleUtill.plugin.Properties.Resources.icon));
+            SystemShortcutAPI.AddButton(MyAttribute.PLAGIN_FULL_NAME, new Action(delegate () { isGUIOn = !isGUIOn; }), MyAttribute.PLAGIN_NAME + " " + ScheduleUtill.ShowCounter.Value.ToString(), COM3D2.ScheduleUtill.plugin.Properties.Resources.icon);
         }
 
 
@@ -76,15 +77,10 @@ namespace COM3D2.ScheduleUtill.plugin
         public void OnEnable()
         {
             log.LogInfo("OnEnable");
-
-            SceneManager.sceneLoaded += this.OnSceneLoaded;
-
             // 하모니 패치
             harmony = Harmony.CreateAndPatchAll(typeof(ScheduleUtillPatch));
             harmony.PatchAll(typeof(YotogiPatch));
-            harmony.PatchAll(typeof(YotogiOldPatch));
-            // json 읽기
-            myWindowRect.load();
+            harmony.PatchAll(typeof(YotogiOldPatch));            
         }
 
         /// <summary>
@@ -95,31 +91,6 @@ namespace COM3D2.ScheduleUtill.plugin
        //    log.LogMessage("Start");
        //}
 
-        public static string scene_name = string.Empty;
-
-        public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-        {
-            log.LogInfo("OnSceneLoaded", scene.name, scene.buildIndex);
-            //  scene.buildIndex 는 쓰지 말자 제발
-            scene_name = scene.name;
-        }
-
-        public void Update()
-        {
-            if (ShowCounter.Value.IsDown())
-            {
-                log.LogInfo("IsDown", ShowCounter.Value.Modifiers, ShowCounter.Value.MainKey);
-            }
-            if (ShowCounter.Value.IsPressed())
-            {
-                log.LogInfo("IsPressed", ShowCounter.Value.Modifiers, ShowCounter.Value.MainKey);
-            }
-            if (ShowCounter.Value.IsUp())
-            {
-                isGUIOn = !isGUIOn;
-                log.LogInfo("IsUp", ShowCounter.Value.Modifiers, ShowCounter.Value.MainKey);
-            }
-        }
 
         private int windowId = new System.Random().Next();     
 
@@ -138,8 +109,6 @@ namespace COM3D2.ScheduleUtill.plugin
         public void OnDisable()
         {
             log.LogInfo("OnDisable");
-
-            SceneManager.sceneLoaded -= this.OnSceneLoaded;
 
             harmony.UnpatchSelf();// ==harmony.UnpatchAll(harmony.Id);
             //harmony.UnpatchAll(); // 정대 사용 금지. 다름 플러그인이 패치한것까지 다 풀려버림
