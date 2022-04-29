@@ -40,7 +40,8 @@ namespace COM3D2.ScheduleUtill.plugin
 
         [HarmonyPatch(typeof(YotogiStageUnit), "SetStageData")]//, new Type[] { typeof(int), typeof(int), typeof(bool) }
         [HarmonyPostfix]
-        public static void SetStageData(YotogiStage.Data stage_data, bool enabled, bool isDaytime, YotogiStageUnit __instance, UILabel ___name_label_)
+        // public static void SetStageData(YotogiStage.Data stage_data, bool enabled, bool isDaytime, YotogiStageUnit __instance, UILabel ___name_label_) // x.15.0
+        public static void SetStageData(YotogiStageUnit __instance, YotogiStageSelectManager.StageExpansionPack stagePack, bool enabled,  UILabel ___name_label_)// x.16.0 bool isDaytime,
         {
             if (enabled)
             {
@@ -51,7 +52,7 @@ namespace COM3D2.ScheduleUtill.plugin
             }
             else
             {
-                ___name_label_.text = stage_data.drawName;
+                ___name_label_.text = stagePack.stageData.drawName;
                 //this.name_label_.text = "??????";
             }
 
@@ -75,8 +76,8 @@ namespace COM3D2.ScheduleUtill.plugin
                 var yotogiStageUnit = yotogiStageUnits[UnityEngine.Random.Range(0, yotogiStageUnits.Count)];
                 yotogiStageUnit.UpdateBG();
 
-                YotogiStage.Data stage_data = yotogiStageUnit.stage_data;
-                YotogiStageSelectManager.SelectStage(stage_data, GameMain.Instance.CharacterMgr.status.isDaytime);
+                YotogiStage.Data stage_data = yotogiStageUnit.stage_data.stageData;
+                YotogiStageSelectManager.SelectStage(stage_data, null, GameMain.Instance.CharacterMgr.status.isDaytime);
                 stage_data.stageSelectCameraData.Apply();
                 GameMain.Instance.SoundMgr.PlayBGM(stage_data.bgmFileName, 1f, true);
             }
@@ -144,7 +145,7 @@ namespace COM3D2.ScheduleUtill.plugin
 
                 if (YotogiStageSelectManager.SelectedStage != null)
                 {
-                    setting_stage_data_ = YotogiStageSelectManager.SelectedStage;
+                    setting_stage_data_ = YotogiStageSelectManager.SelectedStage.stageData;
                 }
                 else
                 {
