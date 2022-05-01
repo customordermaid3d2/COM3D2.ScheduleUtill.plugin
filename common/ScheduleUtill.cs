@@ -4,7 +4,6 @@ using BepInEx.Logging;
 using COM3D2API;
 using HarmonyLib;
 using LillyUtill.MyWindowRect;
-using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.Collections.Generic;

@@ -36,63 +36,30 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony">
-      <HintPath>lib\0Harmony.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Assembly-CSharp">
-      <HintPath>lib\Assembly-CSharp.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Assembly-CSharp-firstpass">
-      <HintPath>lib\Assembly-CSharp-firstpass.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="BepInEx">
-      <HintPath>lib\BepInEx.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="COM3D2.API">
-      <HintPath>lib\COM3D2.API.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="COM3D2.LillyUtill">
-      <HintPath>C:\Downloads\plugin\COM3D2.LillyUtill.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net35\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Threading">
-      <HintPath>lib\System.Threading.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-    <Reference Include="UnityEngine">
-      <HintPath>lib\UnityEngine.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="..\common\ScheduleUtill.cs">
+      <Link>ScheduleUtill.cs</Link>
+    </Compile>
+    <Compile Include="..\common\ScheduleUtillGUI.cs">
+      <Link>ScheduleUtillGUI.cs</Link>
+    </Compile>
+    <Compile Include="..\common\ScheduleUtillPatch.cs">
+      <Link>ScheduleUtillPatch.cs</Link>
+    </Compile>
+    <Compile Include="..\common\ScheduleUtillTool.cs">
+      <Link>ScheduleUtillTool.cs</Link>
+    </Compile>
+    <Compile Include="..\common\YotogiOldPatch.cs">
+      <Link>YotogiOldPatch.cs</Link>
+    </Compile>
+    <Compile Include="..\common\YotogiPatch.cs">
+      <Link>YotogiPatch.cs</Link>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="ScheduleUtill.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScheduleUtillGUI.cs" />
-    <Compile Include="ScheduleUtillPatch.cs" />
-    <Compile Include="ScheduleUtillTool.cs" />
-    <Compile Include="YotogiOldPatch.cs" />
-    <Compile Include="YotogiPatch.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -103,6 +70,46 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\BepInEx.Analyzers.1.0.8\analyzers\dotnet\cs\BepInEx.Analyzers.CodeFixes.dll" />
+    <Analyzer Include="..\packages\BepInEx.Analyzers.1.0.8\analyzers\dotnet\cs\BepInEx.Analyzers.dll" />
+    <Analyzer Include="H:\COM3D2\BepinEx\plugins\COM3D2.API.dll" />
+    <Analyzer Include="H:\COM3D2\BepinEx\plugins\COM3D2.WindowRectUtill.dll" />
+    <Analyzer Include="H:\COM3D2\COM3D2x64_Data\Managed\Assembly-CSharp-firstpass.dll" />
+    <Analyzer Include="H:\COM3D2\COM3D2x64_Data\Managed\Assembly-CSharp.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>H:\COM3D2\BepinEx\core\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\COM3D2\COM3D2x64_Data\Managed\Assembly-CSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Assembly-CSharp-firstpass, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\COM3D2\COM3D2x64_Data\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+    </Reference>
+    <Reference Include="BepInEx">
+      <HintPath>H:\COM3D2\BepinEx\core\BepInEx.dll</HintPath>
+    </Reference>
+    <Reference Include="COM3D2.API, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\COM3D2\BepinEx\plugins\COM3D2.API.dll</HintPath>
+    </Reference>
+    <Reference Include="COM3D2.WindowRectUtill, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>H:\COM3D2\BepinEx\plugins\COM3D2.WindowRectUtill.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UnityEngine.5.6.1\lib\net35\UnityEngine.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
