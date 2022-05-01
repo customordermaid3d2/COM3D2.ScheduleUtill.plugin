@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM3D2.ScheduleUtill.plugin", "COM3D2.ScheduleUtill.plugin\COM3D2.ScheduleUtill.plugin.csproj", "{22EEBF57-57FB-4FF6-A298-653F0DB3E029}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4C99D785-12A3-4867-922D-F079C8C72C2F}"
 	ProjectSection(SolutionItems) = preProject
 		MEMO.MD = MEMO.MD
@@ -13,20 +11,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM3D25.ScheduleUtill.plugin", "COM3D25.ScheduleUtill.plugin\COM3D25.ScheduleUtill.plugin.csproj", "{F7006460-C807-4C4D-A351-FC027075DF54}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COM3D2.ScheduleUtill.plugin", "COM3D2.ScheduleUtill.plugin\COM3D2.ScheduleUtill.plugin.csproj", "{AE81F3CF-3CDB-4367-90D7-B6A257440B37}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{22EEBF57-57FB-4FF6-A298-653F0DB3E029}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{22EEBF57-57FB-4FF6-A298-653F0DB3E029}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{22EEBF57-57FB-4FF6-A298-653F0DB3E029}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{22EEBF57-57FB-4FF6-A298-653F0DB3E029}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F7006460-C807-4C4D-A351-FC027075DF54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F7006460-C807-4C4D-A351-FC027075DF54}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F7006460-C807-4C4D-A351-FC027075DF54}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F7006460-C807-4C4D-A351-FC027075DF54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE81F3CF-3CDB-4367-90D7-B6A257440B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE81F3CF-3CDB-4367-90D7-B6A257440B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE81F3CF-3CDB-4367-90D7-B6A257440B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE81F3CF-3CDB-4367-90D7-B6A257440B37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
