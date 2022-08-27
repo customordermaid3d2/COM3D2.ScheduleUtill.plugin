@@ -44,8 +44,8 @@ namespace COM3D2.ScheduleUtill.plugin
             m_scheduleApi = ___m_scheduleApi;
         }
 
-        [HarmonyPostfix, HarmonyPatch(typeof(DailyMgr), "OpenDaytimePanel")]
-        public static void OpenDaytimePanel()
+        [HarmonyPostfix, HarmonyPatch(typeof(GameMain), "OnStartDay")]
+        public static void OnStartDay()
         {
 
             if (IsSetSlotAllMaid)
